@@ -9,6 +9,19 @@
         "elm.json"
       ]
     },
+    "static-ls": {
+      "command": "static-ls",
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": [
+        "haskell"
+      ]
+    },
     "haskell": {
       "command": "haskell-language-server-wrapper",
       "args": [
@@ -22,9 +35,9 @@
         "package.yaml"
       ],
       "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
+        "deac-hs",
+        "deac-lhs",
+        "deac-haskell"
       ],
       "initializationOptions": {
         "languageServerHaskell": {
@@ -37,17 +50,19 @@
   },
   "suggest.noselect": true,
   "codeLens.enable": true,
+  "inlayHint.enable": false,
   "javascript.referencesCodeLens.enable": false,
   "typescript.referencesCodeLens.enable": false,
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "elm",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
+    "deac-javascript",
+    "deac-javascriptreact",
+    "deac-typescript",
+    "deac-typescriptreact",
     "hs",
+    "haskell",
     "svelte",
     "julia",
     "json"

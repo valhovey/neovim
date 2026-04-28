@@ -5,10 +5,11 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround'
 	use 'tpope/vim-repeat'
 	use 'tomtom/tcomment_vim'
+  use 'mg979/vim-visual-multi'
 
 	-- File browsing and searching
 	use {
-		'nvim-telescope/telescope.nvim', tag='0.1.1',
+		'nvim-telescope/telescope.nvim', tag='0.1.4',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use 'nvim-telescope/telescope-file-browser.nvim'
@@ -20,20 +21,22 @@ return require('packer').startup(function(use)
 		'neoclide/coc.nvim',
 		branch = 'release'
 	}
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
 	use 'nvim-treesitter/playground'
 
 	-- Language Support
 	use 'lilydjwg/colorizer'
 	use 'pbrisbin/vim-syntax-shakespeare'
-	-- use 'tpope/vim-rails'
 	use 'alx741/yesod.vim'
   use { 'ndmitchell/ghcid', rtp = 'plugins/nvim' }
-	-- use 'jpalardy/vim-slime'
-	-- use 'mroavi/vim-julia-cell'
-	-- use 'kdheepak/JuliaFormatter.vim'
 	use 'vimwiki/vimwiki'
-	-- use 'timtro/glslView-nvim'
 	use 'pantharshit00/vim-prisma'
 	use 'vim-latex/vim-latex'
 
@@ -50,6 +53,10 @@ return require('packer').startup(function(use)
 	-- Visual/Information UX
 	use 'lukas-reineke/indent-blankline.nvim'
   use 'famiu/feline.nvim'
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  -- }
 	use 'ryanoasis/vim-devicons'
 	use 'ruanyl/vim-gh-line'
 	use 'nvim-tree/nvim-web-devicons'

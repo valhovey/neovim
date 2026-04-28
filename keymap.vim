@@ -91,8 +91,10 @@ map <Leader>i :IndentLinesToggle<CR>
 map <Leader>r :so<CR>
 
 " Open symbol under cursor in Hoogle search
-nnoremap <Leader>ho :!open "https://hoogle.haskell.org/?hoogle=<C-r><C-w>"<CR>
-nnoremap <Leader>hO :!open "https://hoogle.haskell.org/?hoogle="<Left>
+nnoremap <Leader>ho :!open "https://hoogle.internal.mercury.com/?hoogle=<C-r><C-w>"<CR>
+nnoremap <Leader>hO :!open "https://hoogle.internal.mercury.com/?hoogle="<Left>
+
+nnoremap <Leader>ms ?spec :: SpecWeb<CR>O-- $> :import-spec-web<CR>$> hspecWithEnv spec<Esc><C-o>
 
 " Language Server Config
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
