@@ -7,6 +7,11 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.updatetime = 250
 
+-- Python provider. Points at a dedicated venv rather than the Homebrew python,
+-- which is PEP-668 externally-managed and refuses `pip install pynvim`.
+-- Rebuild with: python3 -m venv ~/.venvs/neovim && ~/.venvs/neovim/bin/pip install pynvim
+vim.g.python3_host_prog = os.getenv('HOME') .. '/.venvs/neovim/bin/python'
+
 -- =============== VIEW SETTINGS ===============
 vim.opt.background = 'dark' -- Background
 vim.opt.nu = true -- Enable Line Numbering

@@ -37,6 +37,7 @@
   },
   "suggest.noselect": true,
   "codeLens.enable": true,
+  "inlayHint.enable": false,
   "javascript.referencesCodeLens.enable": false,
   "typescript.referencesCodeLens.enable": false,
   "javascript.suggest.autoImports": true,

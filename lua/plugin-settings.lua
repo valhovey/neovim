@@ -6,6 +6,14 @@ vim.g.slime_default_config = {
 }
 vim.g.slime_dont_ask_default = 1
 
+-- The companion to the above: vim-slime's ftplugins (python, haskell, scala) write into
+-- g:slime_config_defaults, but that dict is created in autoload/slime/config.vim, which
+-- Vim only sources on the first slime#config#* call. Opening a .py file before ever
+-- invoking slime therefore dies with `E121: Undefined variable: g:slime_config_defaults`.
+-- The eager `runtime autoload/slime/config.vim` that fixes it now lives in the vim-slime
+-- spec's config() in lua/plugins.lua -- this file runs before lazy.nvim puts the plugin
+-- on the rtp, so the runtime call cannot happen here any more.
+
 -- Use '##' tags to define cells in Julia
 vim.g.julia_cell_delimit_cells_by = 'tags'
 
